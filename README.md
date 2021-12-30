@@ -4,9 +4,7 @@ Um simples conversor de temperatura, para os graus Celsius e Fahrenheit, feito e
 ## Como utilizar
 
 <ul>
-  <li>Clone ou copie o código e salve como script.js na raiz de alguma pasta sua</li>
-  <li>Crie um arquivo html (index.html) e salve junto ao script.js</li>
-  <li>Dentro deste arquivo HTML, importe o script utilizando <b><script src="./script.js"></script></b></li>
+  <li>Clone ou copie os códigos e salve alguma pasta sua</li>  
   <li>Abra o arquivo index.html em seu navegador</li>
   <li>Para visualizar o resultado, utilize o Console do navegador (F12)</li>
 </ul>
