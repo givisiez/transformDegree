@@ -1,9 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Conversao de temperatura</title>
-  <script src="./script.js"></script>
+    <title>Conversao de temperatura</title>
+
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        #result {color: red;}
+    </style>
 </head>
-<body>    
+<body>  
+    <h2>Resultado</h2>  
+    <p id="result"></p> 
+
+    <hr />
+
+    <h3>Fahrenheit</h3>
+    <p>
+        O Fahrenheit é uma escala de temperatura termodinâmica, onde o ponto de congelamento da água é de 32 graus Fahrenheit (°F) e o ponto de ebulição de 212 °F (com uma pressão atmosférica normal). Isso coloca os pontos de ebulição e de congelamento da água exatamente a 180 graus de separação. Por conseguinte, um grau na escala Fahrenheit é de 1/180 de intervalo entre o ponto de congelação e o ponto de ebulição da água. O zero absoluto é definido como igual a -459,67 °F.
+    </p>
+    <p>
+        A diferença de temperatura de 1 °F é o equivalente a uma diferença de temperatura de 0,556 °C.
+    </p>
+
+    <h3>Conversão de Fahrenheit para Celsius</h3>
+    Fórmula: F = C * 9/5 + 32;
+
+    <h3>Celsius</h3>
+    <p>
+        Embora inicialmente definido como ponto de congelação da água (e depois como ponto de fusão do gelo), a escala Celsius é agora oficialmente uma escala derivada, definida em relação à escala de temperatura Kelvin.
+    </p>
+    <p>
+        O zero na escala Celsius (0 °C) é agora definido como equivalente a 273,15 K, com uma diferença de temperatura de 1 °C equivalente a uma diferença de 1 K, ou seja, o tamanho da unidade em cada escala é a mesma. Isto significa que 100 °C, previamente definido como o ponto de ebulição da água, é agora definido como equivalente a 373,15 K.
+    </p>
+    <p>
+        A escala Celsius é um sistema de intervalo, mas não um sistema de relação, ou seja, segue uma escala relativa, mas não uma escala absoluta. Isto pode ser observado porque o intervalo de temperatura entre 20 °C e 30 °C é o mesmo que entre 30 °C e 40 °C, mas 40 °C não tem o dobro da energia térmica de um ar de 20 ° C.
+    </p>
+
+    <p>
+        A diferença de temperatura de 1 °C é equivalente a uma difer 
+    </p>
+
+    <h3>Conversão de Celsius para Fahrenheit</h3>
+    Fórmula: C = (F - 32) * 5/9;
+
+    <script>
+        function transformDegree(degree) { 
+        const patternText = /[C,F]/g;
+        const patternNumber = /\d+/g;
+        const degreeExists = degree.toUpperCase().match(patternText);
+
+        if(!degreeExists) {
+            throw new Error('Grau ºC ou ºF nao identificado');
+        }
+
+        // F -> C || C -> F
+        let updatedDegree = Number(degree.match(patternNumber));
+        if(degreeExists[0] === "F") {
+            var formula = fahrenheit => (fahrenheit - 32) * 5/9;
+            var degreeSign = 'ºC';
+        } else if(degreeExists[0] === "C") {   
+            var formula = celcius => celcius * 9/5 + 32;
+            var degreeSign = 'ºF';
+        }  
+
+        return formula(updatedDegree) + degreeSign;
+        }
+
+        // RESULT
+        try{
+            // console.log(transformDegree('10c')); // C -> F
+            // console.log(transformDegree('50f')); // F -> C
+
+            document.getElementById("result").innerHTML = transformDegree('10c');
+        } catch(e) {
+            console.log(e.message);
+        }
+    </script>
 </body>
 </html>
